@@ -4,10 +4,10 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Ubah warna latar belakang menjadi putih */
+    background-color: #fff; /* Warna latar belakang putih */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
     border-radius: 10px; /* Sudut bulat */
-    color: #000; /* Ubah warna teks menjadi hitam */
+    color: #333; /* Warna teks hitam */
 }
 
 /* Style untuk judul */
@@ -31,7 +31,7 @@ label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold; /* Teks label menjadi tebal */
-    color: #333; /* Warna teks label */
+    color: #fff; /* Warna teks label putih */
 }
 
 /* Style untuk input angka */
@@ -46,7 +46,7 @@ input[type="number"] {
 
 /* Style untuk tombol */
 button {
-    background-color: #4CAF50; /* Warna latar belakang hijau tua */
+    background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -59,7 +59,7 @@ button {
 p {
     margin-top: 10px;
     font-weight: bold;
-    color: #333;
+    color: #fff; /* Warna teks hasil putih */
     font-size: 18px; /* Ukuran teks hasil perhitungan */
 }
 
