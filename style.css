@@ -4,15 +4,15 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    background-color: #f0f0f0; /* Warna latar belakang */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+    border-radius: 10px; /* Sudut bulat */
 }
 
 /* Style untuk judul */
 h1 {
     text-align: center;
-    color: #007bff;
+    color: #007bff; /* Warna teks judul */
 }
 
 /* Style untuk bagian */
@@ -20,8 +20,8 @@ h1 {
     margin-top: 20px;
     border: 1px solid #ccc;
     padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Warna latar belakang */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
     border-radius: 5px;
 }
 
@@ -29,8 +29,8 @@ h1 {
 label {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
+    font-weight: bold; /* Teks label menjadi tebal */
+    color: #333; /* Warna teks label */
 }
 
 /* Style untuk input angka */
@@ -40,7 +40,7 @@ input[type="number"] {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 16px; /* Ukuran teks input */
 }
 
 /* Style untuk tombol */
@@ -59,15 +59,5 @@ p {
     margin-top: 10px;
     font-weight: bold;
     color: #333;
-    font-size: 18px;
-}
-
-/* Style untuk select */
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 18px; /* Ukuran teks hasil perhitungan */
 }
