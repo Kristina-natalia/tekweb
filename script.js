@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const header = document.createElement("h1");
     header.textContent = "Kalkulator Matematika";
-    header.className = "judul";
     appContainer.appendChild(header);
 
     // Bagian Deret Fibonacci
@@ -29,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
- const volumeContainer = createContainer("Volume Bangun Ruang");
+    // Bagian Volume Bangun Ruang
+    const volumeContainer = createContainer("Volume Bangun Ruang");
     appContainer.appendChild(volumeContainer);
 
     const shapeSelect = createSelect("shape-select");
@@ -37,15 +37,14 @@ document.addEventListener("DOMContentLoaded", function () {
         <option value="kubus">Kubus</option>
         <option value="balok">Balok</option>
         <option value="segitiga">Segitiga</option>
+        <option value="tabung">Tabung</option>
+        <!-- tambahkan bentuk lainnya jika diperlukan -->
     `;
     volumeContainer.appendChild(shapeSelect);
 
     const shapeInputs = document.createElement("div");
     shapeInputs.id = "shape-inputs";
     volumeContainer.appendChild(shapeInputs);
-
-    const rumusInput = createInput("rumus-input", "Masukkan rumus (cth: panjang * lebar * tinggi):");
-    volumeContainer.appendChild(rumusInput);
 
     const volumeButton = createButton("volume-button", "Hitung");
     volumeContainer.appendChild(volumeButton);
@@ -58,26 +57,58 @@ document.addEventListener("DOMContentLoaded", function () {
         shapeInputs.innerHTML = "";
 
         if (selectedShape === "kubus") {
-            const kubusRumus = createInput("kubus-rumus", "Masukkan rumus (cth: sisi * sisi * sisi):");
-            shapeInputs.appendChild(kubusRumus);
+            const kubusSisi = createInput("kubus-sisi", "Masukkan panjang sisi:");
+            shapeInputs.appendChild(kubusSisi);
         } else if (selectedShape === "balok") {
-            const balokRumus = createInput("balok-rumus", "Masukkan rumus (cth: panjang * lebar * tinggi):");
-            shapeInputs.appendChild(balokRumus);
+            const balokPanjang = createInput("balok-panjang", "Masukkan panjang:");
+            const balokLebar = createInput("balok-lebar", "Masukkan lebar:");
+            const balokTinggi = createInput("balok-tinggi", "Masukkan tinggi:");
+
+            shapeInputs.appendChild(balokPanjang);
+            shapeInputs.appendChild(balokLebar);
+            shapeInputs.appendChild(balokTinggi);
         } else if (selectedShape === "segitiga") {
-            const segitigaRumus = createInput("segitiga-rumus", "Masukkan rumus (cth: 0.5 * alas * tinggi):");
-            shapeInputs.appendChild(segitigaRumus);
+            const segitigaAlas = createInput("segitiga-alas", "Masukkan alas:");
+            const segitigaTinggi = createInput("segitiga-tinggi", "Masukkan tinggi:");
+
+            shapeInputs.appendChild(segitigaAlas);
+            shapeInputs.appendChild(segitigaTinggi);
+        } else if (selectedShape === "tabung") {
+            const tabungJariJari = createInput("tabung-jari-jari", "Masukkan jari-jari:");
+            const tabungTinggi = createInput("tabung-tinggi", "Masukkan tinggi:");
+
+            shapeInputs.appendChild(tabungJariJari);
+            shapeInputs.appendChild(tabungTinggi);
         }
     });
 
     volumeButton.addEventListener("click", function () {
         const selectedShape = shapeSelect.value;
-        const rumus = document.getElementById(selectedShape + "-rumus").value;
-        const volume = evaluateRumus(rumus);
+        const shapeInputsArray = Array.from(shapeInputs.getElementsByTagName("input"));
+        const validInputs = shapeInputsArray.every(input => !isNaN(parseFloat(input.value)));
 
-        if (!isNaN(volume)) {
-            volumeResult.textContent = "Hasil: " + volume;
-        } else {
-            volumeResult.textContent = "Rumus tidak valid.";
+        if (validInputs) {
+            if (selectedShape === "kubus") {
+                const sisi = parseFloat(document.getElementById("kubus-sisi").value);
+                const volume = sisi ** 3;
+                volumeResult.textContent = "Hasil: " + volume;
+            } else if (selectedShape === "balok") {
+                const panjang = parseFloat(document.getElementById("balok-panjang").value);
+                const lebar = parseFloat(document.getElementById("balok-lebar").value);
+                const tinggi = parseFloat(document.getElementById("balok-tinggi").value);
+                const volume = panjang * lebar * tinggi;
+                volumeResult.textContent = "Hasil: " + volume;
+            } else if (selectedShape === "segitiga") {
+                const alas = parseFloat(document.getElementById("segitiga-alas").value);
+                const tinggi = parseFloat(document.getElementById("segitiga-tinggi").value);
+                const volume = (alas * tinggi) / 2;
+                volumeResult.textContent = "Hasil: " + volume;
+            } else if (selectedShape === "tabung") {
+                const jariJari = parseFloat(document.getElementById("tabung-jari-jari").value);
+                const tinggi = parseFloat(document.getElementById("tabung-tinggi").value);
+                const volume = Math.PI * (jariJari ** 2) * tinggi;
+                volumeResult.textContent = "Hasil: " + volume.toFixed(2); // Menampilkan volume dengan 2 angka desimal
+            }
         }
     });
 
@@ -96,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
         inputLabel.htmlFor = id;
         inputLabel.textContent = label;
         const input = document.createElement("input");
-        input.type = "text";
+        input.type = "number";
         input.id = id;
         return inputLabel;
     }
@@ -120,12 +151,19 @@ document.addEventListener("DOMContentLoaded", function () {
         return result;
     }
 
-    function evaluateRumus(rumus) {
-        try {
-            return eval(rumus);
-        } catch (error) {
-            console.error(error);
-            return NaN;
+    function calculateFibonacci(n) {
+        if (n <= 0) return 0;
+        if (n === 1) return 1;
+
+        let prev = 0;
+        let current = 1;
+
+        for (let i = 2; i <= n; i++) {
+            const next = prev + current;
+            prev = current;
+            current = next;
         }
+
+        return current;
     }
 });
