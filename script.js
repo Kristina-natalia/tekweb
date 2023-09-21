@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const input = document.createElement("input");
         input.type = "number";
         input.id = id;
-        return inputLabel;
+        return input;
     }
 
     function createSelect(id) {
