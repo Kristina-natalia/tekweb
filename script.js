@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Bagian Volume Bangun Ruang
-    const volumeContainer = createContainer("Volume Bangun Ruang");
+ const volumeContainer = createContainer("Volume Bangun Ruang");
     appContainer.appendChild(volumeContainer);
 
     const shapeSelect = createSelect("shape-select");
@@ -73,11 +72,12 @@ document.addEventListener("DOMContentLoaded", function () {
     volumeButton.addEventListener("click", function () {
         const selectedShape = shapeSelect.value;
         const rumus = document.getElementById(selectedShape + "-rumus").value;
-        const rumusFunction = new Function('return ' + rumus);
+        const volume = evaluateRumus(rumus);
 
-        if (selectedShape === "kubus" || selectedShape === "balok" || selectedShape === "segitiga") {
-            const volume = rumusFunction();
+        if (!isNaN(volume)) {
             volumeResult.textContent = "Hasil: " + volume;
+        } else {
+            volumeResult.textContent = "Rumus tidak valid.";
         }
     });
 
@@ -120,19 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return result;
     }
 
-    function calculateFibonacci(n) {
-        if (n <= 0) return 0;
-        if (n === 1) return 1;
-
-        let prev = 0;
-        let current = 1;
-
-        for (let i = 2; i <= n; i++) {
-            const next = prev + current;
-            prev = current;
-            current = next;
+    function evaluateRumus(rumus) {
+        try {
+            return eval(rumus);
+        } catch (error) {
+            console.error(error);
+            return NaN;
         }
-
-        return current;
     }
 });
