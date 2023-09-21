@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Matematika</title>
     <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Matematika</title>
 </head>
 <body>
-     <div class="app-container">
-        <h1>Kalkulator Matematika</h1>
-
-        <!-- Informasi Biodata -->
-        <div class="biodata">
-            <p>Nama: Kristina Natalia</p>
-            <p>NIM: 2215101003</p>
-            <p>Kelas: A</p>
-            <p>Semester: 3</p>
-        </div>
+    <div class="app-container">
+        <h1 class="judul">Kalkulator Matematika</h1>
 
         <!-- Bagian Deret Fibonacci -->
         <div class="container">
             <h2>Deret Fibonacci</h2>
             <label for="fibonacci-input">Masukkan angka ke-n:</label>
-            <input type="number" id="fibonacci-input">
+            <input type="number" id="fibonacci-input" placeholder="Misal: 5">
             <button id="fibonacci-button">Hitung</button>
-            <p id="fibonacci-result"></p>
+            <p id="fibonacci-result">Hasil: </p>
         </div>
 
         <!-- Bagian Volume Bangun Ruang -->
         <div class="container">
             <h2>Volume Bangun Ruang</h2>
-            <label for="shape-select">Pilih bentuk:</label>
+            <label for="shape-select">Pilih Bentuk:</label>
             <select id="shape-select">
                 <option value="kubus">Kubus</option>
                 <option value="balok">Balok</option>
                 <option value="segitiga">Segitiga</option>
             </select>
-            <div id="shape-inputs"></div>
+            <div id="shape-inputs">
+                <!-- Isian akan muncul di sini berdasarkan pilihan -->
+            </div>
             <button id="volume-button">Hitung</button>
-            <p id="volume-result"></p>
+            <p id="volume-result">Hasil: </p>
         </div>
+    </div>
+
+    <!-- Biodata -->
+    <div class="biodata-container">
+        <h2>Biodata</h2>
+        <ul>
+            <li><strong>Nama:</strong> Kristina Natalia</li>
+            <li><strong>NIM:</strong> 2215101003</li>
+            <li><strong>Kelas:</strong> A</li>
+            <li><strong>Semester:</strong> 3</li>
+        </ul>
     </div>
 
     <script src="script.js"></script>
