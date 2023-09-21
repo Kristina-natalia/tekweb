@@ -1,24 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const appContainer = document.createElement("div");
-    appContainer.className = "app-container";
-    document.body.appendChild(appContainer);
-
-    const header = document.createElement("h1");
-    header.textContent = "Aplikasi Matematika";
-    appContainer.appendChild(header);
+    const appContainer = document.querySelector(".app-container");
 
     // Bagian Deret Fibonacci
-    const fibonacciContainer = createContainer("Deret Fibonacci");
-    appContainer.appendChild(fibonacciContainer);
-
-    const fibonacciInput = createInput("fibonacci-input", "Masukkan angka ke-n:");
-    fibonacciContainer.appendChild(fibonacciInput);
-
-    const fibonacciButton = createButton("fibonacci-button", "Hitung");
-    fibonacciContainer.appendChild(fibonacciButton);
-
-    const fibonacciResult = createResult("fibonacci-result");
-    fibonacciContainer.appendChild(fibonacciResult);
+    const fibonacciInput = document.getElementById("fibonacci-input");
+    const fibonacciButton = document.getElementById("fibonacci-button");
+    const fibonacciResult = document.getElementById("fibonacci-result");
 
     fibonacciButton.addEventListener("click", function () {
         const n = parseInt(fibonacciInput.value);
@@ -28,26 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Bagian Volume Bangun Ruang
-    const volumeContainer = createContainer("Perhitungan Volume Bangun Ruang");
-    appContainer.appendChild(volumeContainer);
-
-    const shapeSelect = createSelect("shape-select");
-    shapeSelect.innerHTML = `
-        <option value="kubus">Kubus</option>
-        <option value="balok">Balok</option>
-    `;
-    volumeContainer.appendChild(shapeSelect);
-
-    const shapeInputs = document.createElement("div");
-    shapeInputs.id = "shape-inputs";
-    volumeContainer.appendChild(shapeInputs);
-
-    const volumeButton = createButton("volume-button", "Hitung");
-    volumeContainer.appendChild(volumeButton);
-
-    const volumeResult = createResult("volume-result");
-    volumeContainer.appendChild(volumeResult);
+    // Bagian Perhitungan Volume Bangun Ruang
+    const shapeSelect = document.getElementById("shape-select");
+    const shapeInputs = document.getElementById("shape-inputs");
+    const volumeButton = document.getElementById("volume-button");
+    const volumeResult = document.getElementById("volume-result");
 
     shapeSelect.addEventListener("change", function () {
         const selectedShape = shapeSelect.value;
@@ -88,15 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Helper Functions
-    function createContainer(title) {
-        const container = document.createElement("div");
-        container.className = "container";
-        const heading = document.createElement("h2");
-        heading.textContent = title;
-        container.appendChild(heading);
-        return container;
-    }
-
     function createInput(id, label) {
         const inputLabel = document.createElement("label");
         inputLabel.htmlFor = id;
@@ -104,26 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const input = document.createElement("input");
         input.type = "number";
         input.id = id;
-        return input;
-    }
-
-    function createSelect(id) {
-        const select = document.createElement("select");
-        select.id = id;
-        return select;
-    }
-
-    function createButton(id, label) {
-        const button = document.createElement("button");
-        button.id = id;
-        button.textContent = label;
-        return button;
-    }
-
-    function createResult(id) {
-        const result = document.createElement("p");
-        result.id = id;
-        return result;
+        return inputLabel;
     }
 
     function calculateFibonacci(n) {
