@@ -1,24 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const appContainer = document.createElement("div");
-    appContainer.className = "app-container";
-    document.body.appendChild(appContainer);
-
-    const header = document.createElement("h1");
-    header.textContent = "Kalkulator Matematika";
-    appContainer.appendChild(header);
+    const appContainer = document.querySelector(".app-container");
 
     // Bagian Deret Fibonacci
-    const fibonacciContainer = createContainer("Deret Fibonacci");
-    appContainer.appendChild(fibonacciContainer);
-
-    const fibonacciInput = createInput("fibonacci-input", "Masukkan angka ke-n:");
-    fibonacciContainer.appendChild(fibonacciInput);
-
-    const fibonacciButton = createButton("fibonacci-button", "Hitung");
-    fibonacciContainer.appendChild(fibonacciButton);
-
-    const fibonacciResult = createResult("fibonacci-result");
-    fibonacciContainer.appendChild(fibonacciResult);
+    const fibonacciInput = document.getElementById("fibonacci-input");
+    const fibonacciButton = document.getElementById("fibonacci-button");
+    const fibonacciResult = document.getElementById("fibonacci-result");
 
     fibonacciButton.addEventListener("click", function () {
         const n = parseInt(fibonacciInput.value);
@@ -29,28 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Bagian Volume Bangun Ruang
-    const volumeContainer = createContainer("Volume Bangun Ruang");
-    appContainer.appendChild(volumeContainer);
-
-    const shapeSelect = createSelect("shape-select");
-    shapeSelect.innerHTML = `
-        <option value="kubus">Kubus</option>
-        <option value="balok">Balok</option>
-        <option value="segitiga">Segitiga</option>
-        <option value="tabung">Tabung</option>
-        <!-- tambahkan bentuk lainnya jika diperlukan -->
-    `;
-    volumeContainer.appendChild(shapeSelect);
-
-    const shapeInputs = document.createElement("div");
-    shapeInputs.id = "shape-inputs";
-    volumeContainer.appendChild(shapeInputs);
-
-    const volumeButton = createButton("volume-button", "Hitung");
-    volumeContainer.appendChild(volumeButton);
-
-    const volumeResult = createResult("volume-result");
-    volumeContainer.appendChild(volumeResult);
+    const shapeSelect = document.getElementById("shape-select");
+    const shapeInputs = document.getElementById("shape-inputs");
+    const volumeButton = document.getElementById("volume-button");
+    const volumeResult = document.getElementById("volume-result");
 
     shapeSelect.addEventListener("change", function () {
         const selectedShape = shapeSelect.value;
@@ -74,10 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
             shapeInputs.appendChild(segitigaAlas);
             shapeInputs.appendChild(segitigaTinggi);
         } else if (selectedShape === "tabung") {
-            const tabungJariJari = createInput("tabung-jari-jari", "Masukkan jari-jari:");
+            const tabungJari = createInput("tabung-jari", "Masukkan jari-jari:");
             const tabungTinggi = createInput("tabung-tinggi", "Masukkan tinggi:");
 
-            shapeInputs.appendChild(tabungJariJari);
+            shapeInputs.appendChild(tabungJari);
             shapeInputs.appendChild(tabungTinggi);
         }
     });
@@ -88,40 +56,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const validInputs = shapeInputsArray.every(input => !isNaN(parseFloat(input.value)));
 
         if (validInputs) {
+            let result = 0;
+
             if (selectedShape === "kubus") {
                 const sisi = parseFloat(document.getElementById("kubus-sisi").value);
-                const volume = sisi ** 3;
-                volumeResult.textContent = "Hasil: " + volume;
+                result = sisi ** 3;
             } else if (selectedShape === "balok") {
                 const panjang = parseFloat(document.getElementById("balok-panjang").value);
                 const lebar = parseFloat(document.getElementById("balok-lebar").value);
                 const tinggi = parseFloat(document.getElementById("balok-tinggi").value);
-                const volume = panjang * lebar * tinggi;
-                volumeResult.textContent = "Hasil: " + volume;
+                result = panjang * lebar * tinggi;
             } else if (selectedShape === "segitiga") {
                 const alas = parseFloat(document.getElementById("segitiga-alas").value);
                 const tinggi = parseFloat(document.getElementById("segitiga-tinggi").value);
-                const volume = (alas * tinggi) / 2;
-                volumeResult.textContent = "Hasil: " + volume;
+                result = 0.5 * alas * tinggi;
             } else if (selectedShape === "tabung") {
-                const jariJari = parseFloat(document.getElementById("tabung-jari-jari").value);
+                const jari = parseFloat(document.getElementById("tabung-jari").value);
                 const tinggi = parseFloat(document.getElementById("tabung-tinggi").value);
-                const volume = Math.PI * (jariJari ** 2) * tinggi;
-                volumeResult.textContent = "Hasil: " + volume.toFixed(2); // Menampilkan volume dengan 2 angka desimal
+                result = Math.PI * jari ** 2 * tinggi;
             }
+
+            volumeResult.textContent = "Hasil: " + result.toFixed(2);
         }
     });
 
     // Helper Functions
-    function createContainer(title) {
-        const container = document.createElement("div");
-        container.className = "container";
-        const heading = document.createElement("h2");
-        heading.textContent = title;
-        container.appendChild(heading);
-        return container;
-    }
-
     function createInput(id, label) {
         const inputLabel = document.createElement("label");
         inputLabel.htmlFor = id;
@@ -130,25 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
         input.type = "number";
         input.id = id;
         return inputLabel;
-    }
-
-    function createSelect(id) {
-        const select = document.createElement("select");
-        select.id = id;
-        return select;
-    }
-
-    function createButton(id, label) {
-        const button = document.createElement("button");
-        button.id = id;
-        button.textContent = label;
-        return button;
-    }
-
-    function createResult(id) {
-        const result = document.createElement("p");
-        result.id = id;
-        return result;
     }
 
     function calculateFibonacci(n) {
