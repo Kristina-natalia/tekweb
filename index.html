@@ -3,50 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplikasi Matematika</title>
     <link rel="stylesheet" href="style.css">
+    <title>Kalkulator Matematika</title>
 </head>
 <body>
     <div class="app-container">
-    <h1>Aplikasi Matematika</h1>
+        <h1>Kalkulator Matematika</h1>
 
-    <!-- Bagian Biodata -->
-    <div class="biodata">
-        <h2>Biodata</h2>
-        <p>Nama: Kristina Natalia</p>
-        <p>NIM: 2215101003</p>
-        <p>Kelas: A</p>
-        <p>Semester: 3</p>
-    </div>
-
-    <!-- Bagian Deret Fibonacci -->
-    <!-- ... (kode yang sudah ada) ... -->
-
-    <!-- Bagian Perhitungan Volume Bangun Ruang -->
-    <!-- ... (kode yang sudah ada) ... -->
-    </div>
+        <!-- Bagian Deret Fibonacci -->
         <div class="container">
             <h2>Deret Fibonacci</h2>
             <label for="fibonacci-input">Masukkan angka ke-n:</label>
             <input type="number" id="fibonacci-input">
             <button id="fibonacci-button">Hitung</button>
-            <p id="fibonacci-result">Hasil: </p>
+            <p id="fibonacci-result"></p>
         </div>
 
-        <!-- Bagian Perhitungan Volume Bangun Ruang -->
+        <!-- Bagian Volume Bangun Ruang -->
         <div class="container">
-            <h2>Perhitungan Volume Bangun Ruang</h2>
-            <label for="shape-select">Pilih bentuk:</label>
+            <h2>Volume Bangun Ruang</h2>
+            <label for="shape-select">Pilih bangun ruang:</label>
             <select id="shape-select">
                 <option value="kubus">Kubus</option>
                 <option value="balok">Balok</option>
             </select>
-            <div id="shape-inputs"></div>
+            <div id="shape-inputs">
+                <!-- Input panjang, lebar, dan tinggi untuk Balok -->
+                <label for="balok-panjang">Masukkan panjang:</label>
+                <input type="number" id="balok-panjang">
+                <label for="balok-lebar">Masukkan lebar:</label>
+                <input type="number" id="balok-lebar">
+                <label for="balok-tinggi">Masukkan tinggi:</label>
+                <input type="number" id="balok-tinggi">
+                <!-- Input panjang sisi untuk Kubus -->
+                <label for="kubus-sisi">Masukkan panjang sisi:</label>
+                <input type="number" id="kubus-sisi">
+            </div>
             <button id="volume-button">Hitung</button>
-            <p id="volume-result">Hasil: </p>
+            <p id="volume-result"></p>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
