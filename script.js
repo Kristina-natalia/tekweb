@@ -20,7 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const volumeButton = document.getElementById("volume-button");
     const volumeResult = document.getElementById("volume-result");
 
+    // Inisialisasi input sesuai dengan pilihan awal
+    initializeInputs();
+
     shapeSelect.addEventListener("change", function () {
+        initializeInputs(); // Panggil fungsi inisialisasi saat pilihan berubah
+
         const selectedShape = shapeSelect.value;
         shapeInputs.innerHTML = "";
 
@@ -57,6 +62,25 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // Inisialisasi input sesuai dengan pilihan awal
+    function initializeInputs() {
+        const selectedShape = shapeSelect.value;
+        shapeInputs.innerHTML = "";
+
+        if (selectedShape === "kubus") {
+            const kubusSisi = createInput("kubus-sisi", "Masukkan panjang sisi:");
+            shapeInputs.appendChild(kubusSisi);
+        } else if (selectedShape === "balok") {
+            const balokPanjang = createInput("balok-panjang", "Masukkan panjang:");
+            const balokLebar = createInput("balok-lebar", "Masukkan lebar:");
+            const balokTinggi = createInput("balok-tinggi", "Masukkan tinggi:");
+
+            shapeInputs.appendChild(balokPanjang);
+            shapeInputs.appendChild(balokLebar);
+            shapeInputs.appendChild(balokTinggi);
+        }
+    }
 
     // Helper Functions
     function createInput(id, label) {
