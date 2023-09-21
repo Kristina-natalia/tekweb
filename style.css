@@ -1,0 +1,73 @@
+/* Style untuk container utama */
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Style untuk judul */
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+/* Style untuk bagian */
+.container {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Style untuk label input */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style untuk input angka */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style untuk tombol */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Style untuk hasil perhitungan */
+p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+
+/* Style untuk select */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
