@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const input = document.createElement("input");
         input.type = "number";
         input.id = id;
+        input.classList.add("shape-input");
         return inputLabel;
     }
 
