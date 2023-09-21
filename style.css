@@ -4,9 +4,10 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Warna latar belakang */
+    background-color: #4CAF50; /* Warna latar belakang hijau */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
     border-radius: 10px; /* Sudut bulat */
+    color: #fff; /* Warna teks putih */
 }
 
 /* Style untuk judul */
@@ -23,16 +24,6 @@ h1 {
     background-color: #ffffff; /* Warna latar belakang */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
     border-radius: 5px;
-}
-
-/* Style untuk select (kotak pilihan) */
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px; /* Ukuran teks input */
 }
 
 /* Style untuk label input */
@@ -70,4 +61,14 @@ p {
     font-weight: bold;
     color: #333;
     font-size: 18px; /* Ukuran teks hasil perhitungan */
+}
+
+/* Style untuk kotak pilihan */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Ukuran teks input */
 }
