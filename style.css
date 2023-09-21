@@ -75,10 +75,10 @@ select {
 
 /* Style untuk biodata */
 .biodata {
-    background-color: #007bff; /* Warna biru */
-    color: #fff;
+    background-color: #ffffff; /* Warna latar belakang putih */
+    color: #000; /* Warna teks hitam */
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
-    text-align: center;
+    text-align: left; /* Rata kiri */
 }
