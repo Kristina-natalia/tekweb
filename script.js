@@ -1,10 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const appContainer = document.querySelector(".app-container");
+    const appContainer = document.createElement("div");
+    appContainer.className = "app-container";
+    document.body.appendChild(appContainer);
+
+    const header = document.createElement("h1");
+    header.textContent = "Kalkulator Matematika";
+    header.className = "judul";
+    appContainer.appendChild(header);
 
     // Bagian Deret Fibonacci
-    const fibonacciInput = document.getElementById("fibonacci-input");
-    const fibonacciButton = document.getElementById("fibonacci-button");
-    const fibonacciResult = document.getElementById("fibonacci-result");
+    const fibonacciContainer = createContainer("Deret Fibonacci");
+    appContainer.appendChild(fibonacciContainer);
+
+    const fibonacciInput = createInput("fibonacci-input", "Masukkan angka ke-n:");
+    fibonacciContainer.appendChild(fibonacciInput);
+
+    const fibonacciButton = createButton("fibonacci-button", "Hitung");
+    fibonacciContainer.appendChild(fibonacciButton);
+
+    const fibonacciResult = createResult("fibonacci-result");
+    fibonacciContainer.appendChild(fibonacciResult);
 
     fibonacciButton.addEventListener("click", function () {
         const n = parseInt(fibonacciInput.value);
@@ -13,7 +28,33 @@ document.addEventListener("DOMContentLoaded", function () {
             fibonacciResult.textContent = "Hasil: " + result;
         }
     });
-shapeSelect.addEventListener("change", function () {
+
+    // Bagian Volume Bangun Ruang
+    const volumeContainer = createContainer("Volume Bangun Ruang");
+    appContainer.appendChild(volumeContainer);
+
+    const shapeSelect = createSelect("shape-select");
+    shapeSelect.innerHTML = `
+        <option value="kubus">Kubus</option>
+        <option value="balok">Balok</option>
+        <option value="segitiga">Segitiga</option>
+    `;
+    volumeContainer.appendChild(shapeSelect);
+
+    const shapeInputs = document.createElement("div");
+    shapeInputs.id = "shape-inputs";
+    volumeContainer.appendChild(shapeInputs);
+
+    const rumusInput = createInput("rumus-input", "Masukkan rumus (cth: panjang * lebar * tinggi):");
+    volumeContainer.appendChild(rumusInput);
+
+    const volumeButton = createButton("volume-button", "Hitung");
+    volumeContainer.appendChild(volumeButton);
+
+    const volumeResult = createResult("volume-result");
+    volumeContainer.appendChild(volumeResult);
+
+    shapeSelect.addEventListener("change", function () {
         const selectedShape = shapeSelect.value;
         shapeInputs.innerHTML = "";
 
@@ -31,9 +72,9 @@ shapeSelect.addEventListener("change", function () {
 
     volumeButton.addEventListener("click", function () {
         const selectedShape = shapeSelect.value;
-        const rumusInput = document.getElementById(selectedShape + "-rumus").value;
-        const rumusFunction = new Function('return ' + rumusInput);
-        
+        const rumus = document.getElementById(selectedShape + "-rumus").value;
+        const rumusFunction = new Function('return ' + rumus);
+
         if (selectedShape === "kubus" || selectedShape === "balok" || selectedShape === "segitiga") {
             const volume = rumusFunction();
             volumeResult.textContent = "Hasil: " + volume;
@@ -41,14 +82,42 @@ shapeSelect.addEventListener("change", function () {
     });
 
     // Helper Functions
+    function createContainer(title) {
+        const container = document.createElement("div");
+        container.className = "container";
+        const heading = document.createElement("h2");
+        heading.textContent = title;
+        container.appendChild(heading);
+        return container;
+    }
+
     function createInput(id, label) {
         const inputLabel = document.createElement("label");
         inputLabel.htmlFor = id;
         inputLabel.textContent = label;
         const input = document.createElement("input");
-        input.type = "number";
+        input.type = "text";
         input.id = id;
         return inputLabel;
+    }
+
+    function createSelect(id) {
+        const select = document.createElement("select");
+        select.id = id;
+        return select;
+    }
+
+    function createButton(id, label) {
+        const button = document.createElement("button");
+        button.id = id;
+        button.textContent = label;
+        return button;
+    }
+
+    function createResult(id) {
+        const result = document.createElement("p");
+        result.id = id;
+        return result;
     }
 
     function calculateFibonacci(n) {
