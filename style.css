@@ -7,11 +7,11 @@
     background-color: #ffffff; /* Warna latar belakang putih */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
     border-radius: 10px; /* Sudut bulat */
-    color: #000; /* Warna teks hitam */
+    color: #333; /* Warna teks hitam */
 }
 
 /* Style untuk judul */
-h1 {
+.judul {
     text-align: center;
     color: #007bff; /* Warna teks judul */
 }
@@ -34,8 +34,8 @@ label {
     color: #333; /* Warna teks label */
 }
 
-/* Style untuk input angka */
-input[type="number"] {
+/* Style untuk input angka dan rumus */
+input[type="number"], input[type="text"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -61,24 +61,4 @@ p {
     font-weight: bold;
     color: #000; /* Warna teks hitam */
     font-size: 18px; /* Ukuran teks hasil perhitungan */
-}
-
-/* Style untuk kotak pilihan */
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px; /* Ukuran teks input */
-}
-
-/* Style untuk biodata */
-.biodata {
-    background-color: #ffffff; /* Warna latar belakang putih */
-    color: #000; /* Warna teks hitam */
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: left; /* Rata kiri */
 }
