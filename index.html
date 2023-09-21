@@ -1,42 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script type="text/javascript" src="script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Kalkulator Matematika</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-        <div class="container">
-            <h2>Biodata</h2>
+      <div class="header">
+        <h1>Kalkulator Matematika</h1>
+        <div class="biodata">
             <p>Nama: Kristina Natalia</p>
             <p>NIM: 2215101003</p>
             <p>Kelas: A</p>
             <p>Semester: 3</p>
+            <p>Matakuliah: Teknologi Web</p>
         </div>
     </div>
-    
     <div class="app-container">
-        <h1 class="judul">Kalkulator Matematika</h1>
-        
-        <div class="container">
-            <h2>Volume Bangun Ruang</h2>
-            <label for="shape-select">Pilih Bangun Ruang:</label>
-            <select id="shape-select">
-                <option value="kubus">Kubus</option>
-                <option value="balok">Balok</option>
-                <option value="segitiga">Segitiga</option>
-            </select>
-
-            <div id="shape-inputs">
-                <!-- Konten input rumus akan ditambahkan melalui JavaScript -->
-            </div>
-
-            <button id="volume-button">Hitung</button>
-            <p id="volume-result"></p>
-        </div>
-
+        <h1>Kalkulator Matematika</h1>
         <div class="container">
             <h2>Deret Fibonacci</h2>
             <label for="fibonacci-input">Masukkan angka ke-n:</label>
@@ -44,6 +26,21 @@
             <button id="fibonacci-button">Hitung</button>
             <p id="fibonacci-result"></p>
         </div>
-
+        <div class="container">
+            <h2>Volume Bangun Ruang</h2>
+            <label for="shape-select">Pilih bentuk:</label>
+            <select id="shape-select">
+                <option value="kubus">Kubus</option>
+                <option value="balok">Balok</option>
+                <option value="segitiga">Segitiga</option>
+                <option value="tabung">Tabung</option>
+                <!-- tambahkan bentuk lainnya jika diperlukan -->
+            </select>
+            <div id="shape-inputs"></div>
+            <button id="volume-button">Hitung</button>
+            <p id="volume-result"></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
