@@ -35,6 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
             shapeInputs.appendChild(balokPanjang);
             shapeInputs.appendChild(balokLebar);
             shapeInputs.appendChild(balokTinggi);
+        } else if (selectedShape === "segitiga") {
+            const segitigaAlas = createInput("segitiga-alas", "Masukkan alas:");
+            const segitigaTinggi = createInput("segitiga-tinggi", "Masukkan tinggi:");
+
+            shapeInputs.appendChild(segitigaAlas);
+            shapeInputs.appendChild(segitigaTinggi);
         }
     });
 
@@ -42,20 +48,30 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedShape = shapeSelect.value;
         const shapeInputsArray = Array.from(shapeInputs.getElementsByTagName("input"));
         const validInputs = shapeInputsArray.every(input => !isNaN(parseFloat(input.value)));
+        let resultText = "";
 
         if (validInputs) {
             if (selectedShape === "kubus") {
                 const sisi = parseFloat(document.getElementById("kubus-sisi").value);
                 const volume = sisi ** 3;
-                volumeResult.textContent = "Hasil: " + volume;
+                resultText = "Hasil: " + volume;
             } else if (selectedShape === "balok") {
                 const panjang = parseFloat(document.getElementById("balok-panjang").value);
                 const lebar = parseFloat(document.getElementById("balok-lebar").value);
                 const tinggi = parseFloat(document.getElementById("balok-tinggi").value);
                 const volume = panjang * lebar * tinggi;
-                volumeResult.textContent = "Hasil: " + volume;
+                resultText = "Hasil: " + volume;
+            } else if (selectedShape === "segitiga") {
+                const alas = parseFloat(document.getElementById("segitiga-alas").value);
+                const tinggi = parseFloat(document.getElementById("segitiga-tinggi").value);
+                const luas = (alas * tinggi) / 2;
+                resultText = "Hasil: " + luas;
             }
+        } else {
+            resultText = "Masukkan angka yang valid untuk perhitungan.";
         }
+
+        volumeResult.textContent = resultText;
     });
 
     // Helper Functions
