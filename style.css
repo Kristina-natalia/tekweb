@@ -1,47 +1,58 @@
-/* Style untuk header dan biodata */
-.header {
-    background-color: #007bff; /* Warna latar belakang biru */
-    color: #fff; /* Warna teks putih */
-    text-align: center;
-    padding: 20px;
-}
-
-.biodata {
-    text-align: left;
-    padding: 10px;
-    background-color: #fff; /* Warna latar belakang putih */
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}
-
-/* Style untuk input dan tombol */
-input[type="number"],
-select,
-button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    background-color: #007bff; /* Warna tombol biru */
-    color: #fff; /* Warna teks tombol putih */
-    cursor: pointer;
-}
-
-/* Style untuk kalkulator matematika */
+/* Style untuk container utama */
 .app-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #fff; /* Warna latar belakang putih */
+    background-color: #ffffff; /* Warna latar belakang putih */
+    color: #333; /* Warna teks hitam */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
     border-radius: 10px; /* Sudut bulat */
-    color: #007bff; /* Warna teks biru */
+}
+
+/* Style untuk judul */
+.judul {
+    text-align: center;
+    color: #007bff; /* Warna teks judul */
+}
+
+/* Style untuk bagian */
+.container {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #ffffff; /* Warna latar belakang putih */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    border-radius: 5px;
+}
+
+/* Style untuk label input */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold; /* Teks label menjadi tebal */
+    color: #333; /* Warna teks label */
+}
+
+/* Style untuk input angka */
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Ukuran teks input */
+}
+
+/* Style untuk tombol */
+button {
+    background-color: #4CAF50; /* Warna hijau tua */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 /* Style untuk hasil perhitungan */
@@ -50,4 +61,14 @@ p {
     font-weight: bold;
     color: #000; /* Warna teks hitam */
     font-size: 18px; /* Ukuran teks hasil perhitungan */
+}
+
+/* Style untuk kotak pilihan */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Ukuran teks input */
 }
