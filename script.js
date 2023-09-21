@@ -1,7 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ...
+    const appContainer = document.querySelector(".app-container");
 
-    shapeSelect.addEventListener("change", function () {
+    // Bagian Deret Fibonacci
+    const fibonacciInput = document.getElementById("fibonacci-input");
+    const fibonacciButton = document.getElementById("fibonacci-button");
+    const fibonacciResult = document.getElementById("fibonacci-result");
+
+    fibonacciButton.addEventListener("click", function () {
+        const n = parseInt(fibonacciInput.value);
+        if (!isNaN(n)) {
+            const result = calculateFibonacci(n);
+            fibonacciResult.textContent = "Hasil: " + result;
+        }
+    });
+shapeSelect.addEventListener("change", function () {
         const selectedShape = shapeSelect.value;
         shapeInputs.innerHTML = "";
 
@@ -28,5 +40,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ...
+    // Helper Functions
+    function createInput(id, label) {
+        const inputLabel = document.createElement("label");
+        inputLabel.htmlFor = id;
+        inputLabel.textContent = label;
+        const input = document.createElement("input");
+        input.type = "number";
+        input.id = id;
+        return inputLabel;
+    }
+
+    function calculateFibonacci(n) {
+        if (n <= 0) return 0;
+        if (n === 1) return 1;
+
+        let prev = 0;
+        let current = 1;
+
+        for (let i = 2; i <= n; i++) {
+            const next = prev + current;
+            prev = current;
+            current = next;
+        }
+
+        return current;
+    }
 });
