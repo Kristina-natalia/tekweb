@@ -16,48 +16,52 @@ document.addEventListener("DOMContentLoaded", function () {
     const shapeInput1 = document.getElementById("shapeInput1");
     const shapeInput2 = document.getElementById("shapeInput2");
     const shapeInput3 = document.getElementById("shapeInput3");
-    const shapeInput3Label = document.getElementById("shapeInput3Label");
+
     const calculateVolumeButton = document.getElementById("calculateVolume");
     const volumeResult = document.getElementById("volumeResult");
+
+    const calculateVolumeButton2 = document.getElementById("calculateVolume2");
+    const volumeResult2 = document.getElementById("volumeResult2");
+
+    const calculateVolumeButton3 = document.getElementById("calculateVolume3");
+    const volumeResult3 = document.getElementById("volumeResult3");
 
     shapeSelect.addEventListener("change", function () {
         const selectedShape = shapeSelect.value;
         if (selectedShape === "none") {
             shapeInputs.classList.add("hidden");
-            shapeInput3Label.classList.add("hidden");
-            shapeInput3.classList.add("hidden");
         } else {
             shapeInputs.classList.remove("hidden");
-            if (selectedShape === "triangle") {
-                shapeInput3Label.classList.remove("hidden");
-                shapeInput3.classList.remove("hidden");
-            } else {
-                shapeInput3Label.classList.add("hidden");
-                shapeInput3.classList.add("hidden");
-            }
         }
     });
 
     calculateVolumeButton.addEventListener("click", function () {
-        const selectedShape = shapeSelect.value;
-        let volume;
-
         const value1 = parseFloat(shapeInput1.value);
-        const value2 = parseFloat(shapeInput2.value);
-        const value3 = parseFloat(shapeInput3.value);
-
-        if (selectedShape === "cube") {
-            volume = calculateVolumeCube(value1);
-        } else if (selectedShape === "rectangularPrism") {
-            volume = calculateVolumeRectangularPrism(value1, value2, value3);
-        } else if (selectedShape === "cylinder") {
-            volume = calculateVolumeCylinder(value1, value2);
-        } else if (selectedShape === "triangle") {
-            volume = calculateVolumeTriangle(value1, value2, value3);
-        }
-
-        if (!isNaN(volume)) {
+        if (!isNaN(value1)) {
+            const volume = calculateVolume(value1);
             volumeResult.textContent = `Volume: ${volume}`;
+        } else {
+            volumeResult.textContent = "Masukkan nilai yang valid untuk menghitung volume.";
+        }
+    });
+
+    calculateVolumeButton2.addEventListener("click", function () {
+        const value2 = parseFloat(shapeInput2.value);
+        if (!isNaN(value2)) {
+            const volume = calculateVolume(value2);
+            volumeResult2.textContent = `Volume: ${volume}`;
+        } else {
+            volumeResult2.textContent = "Masukkan nilai yang valid untuk menghitung volume.";
+        }
+    });
+
+    calculateVolumeButton3.addEventListener("click", function () {
+        const value3 = parseFloat(shapeInput3.value);
+        if (!isNaN(value3)) {
+            const volume = calculateVolume(value3);
+            volumeResult3.textContent = `Volume: ${volume}`;
+        } else {
+            volumeResult3.textContent = "Masukkan nilai yang valid untuk menghitung volume.";
         }
     });
 
@@ -76,19 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return b;
     }
 
-    function calculateVolumeCube(sisi) {
+    function calculateVolume(sisi) {
         return sisi ** 3;
-    }
-
-    function calculateVolumeRectangularPrism(panjang, lebar, tinggi) {
-        return panjang * lebar * tinggi;
-    }
-
-    function calculateVolumeCylinder(jariJari, tinggi) {
-        return Math.PI * jariJari ** 2 * tinggi;
-    }
-
-    function calculateVolumeTriangle(alas, tinggi, panjang) {
-        return (1 / 2) * alas * tinggi * panjang;
     }
 });
