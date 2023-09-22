@@ -3,47 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Matematika</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Kalkulator Matematika</title>
 </head>
 <body>
-    <header class="header">
+    <header>
         <h1>Kalkulator Matematika</h1>
-    </header>
-
-    <div class="biodata">
-        <h2>Biodata</h2>
         <p>Nama: Kristina Natalia</p>
         <p>NIM: 2215101003</p>
         <p>Kelas: A</p>
-        <p>Semester: 3</p>
-    </div>
-
-    <div class="app-container">
-        <!-- Bagian Deret Fibonacci -->
-        <div class="container">
+        <p>Matakuliah: Teknologi Web</p>
+    </header>
+    <main>
+        <section>
             <h2>Deret Fibonacci</h2>
-            <label for="fibonacci-input">Masukkan angka ke-n:</label>
-            <input type="number" id="fibonacci-input">
-            <button id="fibonacci-button">Hitung</button>
-            <p id="fibonacci-result"></p>
-        </div>
+            <label for="fibonacciInput">Masukkan n:</label>
+            <input type="number" id="fibonacciInput" placeholder="Masukkan n">
+            <button id="calculateFibonacci" class="green-button">Hitung</button>
+            <p id="fibonacciResult"></p>
+        </section>
 
-        <!-- Bagian Volume Bangun Ruang -->
-        <div class="container">
+        <section>
             <h2>Volume Bangun Ruang</h2>
-            <label for="shape-select">Pilih bangun ruang:</label>
-            <select id="shape-select">
-                <option value="kubus">Kubus</option>
-                <option value="balok">Balok</option>
-                <option value="segitiga">Segitiga</option>
-                <option value="tabung">Tabung</option>
+            <label for="shapeSelect">Pilih Bentuk:</label>
+            <select id="shapeSelect">
+                <option value="none">Pilih Bentuk</option>
+                <option value="cube">Kubus</option>
+                <option value="rectangularPrism">Balok</option>
+                <option value="cylinder">Tabung</option>
+                <option value="triangle">Segitiga</option>
             </select>
-            <div id="shape-inputs"></div>
-            <button id="volume-button">Hitung</button>
-            <p id="volume-result"></p>
-        </div>
-    </div>
+            <div id="shapeInputs" class="hidden">
+                <label for="shapeInput1">Masukkan Nilai 1:</label>
+                <input type="number" id="shapeInput1" placeholder="Nilai 1">
+                <label for="shapeInput2">Masukkan Nilai 2:</label>
+                <input type="number" id="shapeInput2" placeholder="Nilai 2">
+                <label for="shapeInput3" id="shapeInput3Label" class="hidden">Masukkan Nilai 3:</label>
+                <input type="number" id="shapeInput3" class="hidden" placeholder="Nilai 3">
+            </div>
+            <button id="calculateVolume" class="green-button">Hitung</button>
+            <p id="volumeResult"></p>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
