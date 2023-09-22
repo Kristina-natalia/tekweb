@@ -9,10 +9,12 @@
 <body>
     <header>
         <h1>Kalkulator Matematika</h1>
-        <p>Nama: Kristina Natalia</p>
-        <p>NIM: 2215101003</p>
-        <p>Kelas: A</p>
-        <p>Matakuliah: Teknologi Web</p>
+        <div class="biodata">
+            <p>Nama: Kristina Natalia</p>
+            <p>NIM: 2215101003</p>
+            <p>Kelas: A</p>
+            <p>Mata Kuliah: Teknologi Web</p>
+        </div>
     </header>
     <main>
         <section>
@@ -31,18 +33,24 @@
                 <option value="cube">Kubus</option>
                 <option value="rectangularPrism">Balok</option>
                 <option value="cylinder">Tabung</option>
-                <option value="triangle">Segitiga</option>
+                <option value="cone">Kerucut</option>
             </select>
             <div id="shapeInputs" class="hidden">
-                <label for="shapeInput1">Masukkan Nilai 1:</label>
-                <input type="number" id="shapeInput1" placeholder="Nilai 1">
-                <label for="shapeInput2">Masukkan Nilai 2:</label>
-                <input type="number" id="shapeInput2" placeholder="Nilai 2">
-                <label for="shapeInput3" id="shapeInput3Label" class="hidden">Masukkan Nilai 3:</label>
-                <input type="number" id="shapeInput3" class="hidden" placeholder="Nilai 3">
+                <label for="shapeInput1">Panjang:</label>
+                <input type="number" id="shapeInput1" placeholder="Panjang">
+                <button id="calculateVolume" class="green-button">Hitung</button>
+                <p id="volumeResult"></p>
+
+                <label for="shapeInput2">Lebar:</label>
+                <input type="number" id="shapeInput2" placeholder="Lebar">
+                <button id="calculateVolume2" class="green-button">Hitung</button>
+                <p id="volumeResult2"></p>
+
+                <label for="shapeInput3">Tinggi:</label>
+                <input type="number" id="shapeInput3" placeholder="Tinggi">
+                <button id="calculateVolume3" class="green-button">Hitung</button>
+                <p id="volumeResult3"></p>
             </div>
-            <button id="calculateVolume" class="green-button">Hitung</button>
-            <p id="volumeResult"></p>
         </section>
     </main>
 
