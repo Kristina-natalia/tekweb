@@ -1,53 +1,70 @@
-/* Style untuk header dan biodata */
-.header {
-    background-color: #007bff; /* Warna latar belakang biru */
-    color: #fff; /* Warna teks putih */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 20px;
 }
 
-.biodata {
-    text-align: left;
-    padding: 10px;
-    background-color: #fff; /* Warna latar belakang putih */
-    border: 1px solid #ccc;
+header h1 {
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+label {
+    display: block;
     margin-top: 10px;
 }
 
-/* Style untuk input dan tombol */
-input[type="number"],
-select,
-button {
+input, select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 3px;
 }
 
-button {
-    background-color: #007bff; /* Warna tombol biru */
-    color: #fff; /* Warna teks tombol putih */
+button.green-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
     cursor: pointer;
-}
-
-/* Style untuk kalkulator matematika */
-.app-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: #fff; /* Warna latar belakang putih */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efek bayangan */
-    border-radius: 10px; /* Sudut bulat */
-    color: #007bff; /* Warna teks biru */
-}
-
-/* Style untuk hasil perhitungan */
-p {
     margin-top: 10px;
+}
+
+button.green-button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+#shapeInputs {
+    margin-top: 10px;
+}
+
+#volumeResult, #fibonacciResult {
+    color: #4CAF50;
     font-weight: bold;
-    color: #000; /* Warna teks hitam */
-    font-size: 18px; /* Ukuran teks hasil perhitungan */
+    margin-top: 10px;
 }
